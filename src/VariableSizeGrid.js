@@ -9,6 +9,8 @@ const DEFAULT_ESTIMATED_ITEM_SIZE = 50;
 type VariableSizeProps = {|
   estimatedColumnWidth: number,
   estimatedRowHeight: number,
+  disableColVirtualized?: boolean,
+  disableRowVirtualized?: boolean,
   ...Props<any>,
 |};
 

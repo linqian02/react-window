@@ -410,15 +410,20 @@ export default function createGridComponent({
         style,
         useIsScrolling,
         width,
+        disableColVirtualized,
+        disableRowVirtualized
       } = this.props;
       const { isScrolling } = this.state;
 
-      const [
+      let [
         columnStartIndex,
         columnStopIndex,
       ] = this._getHorizontalRangeToRender();
-      const [rowStartIndex, rowStopIndex] = this._getVerticalRangeToRender();
+      let [rowStartIndex, rowStopIndex] = this._getVerticalRangeToRender();
 
+      if(disableColVirtualized) columnStartIndex = 0;
+      if(disableRowVirtualized) rowStartIndex = 0;
+      
       const items = [];
       if (columnCount > 0 && rowCount) {
         for (
